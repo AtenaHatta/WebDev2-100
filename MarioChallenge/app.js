@@ -7,6 +7,10 @@ function isTouching(a, b) {
 		aRect.top > bRect.top + bRect.height ||
 		aRect.left + aRect.width < bRect.left ||
 		aRect.left > bRect.left + bRect.width
+        // aRect.bottom + aRect.height < bRect.bottom ||
+        // aRect.bottom > bRect.bottom + bRect.height ||
+        // aRect.right + aRect.width < bRect.right ||
+        // aRect.right > bRect.right + bRect.width
 	);
 }
 
@@ -19,6 +23,15 @@ const init = () => {
     window.addEventListener('keyup', function(e){
         if(e.key === 'ArrowDown' || e.key === 'Down'){
             moveVertical(avatar, 50);
+        
+        }else if(e.key === 'ArrowUp' || e.key === 'Up'){
+            moveVertical(avatar, -50);
+        
+        }else if(e.key === 'ArrowLeft' || e.key === 'Left'){
+            moveVertical(avatar, -50);
+        
+        }else if(e.key === 'ArrowRight' || e.key === 'Right'){
+            moveVertical(avatar, 50);      
         }
 
         if(isTouching(avatar,coin)) moveCoin();
@@ -32,14 +45,17 @@ const moveVertical = (element, amount) => {
 
 const extractPos = (position) => {
     if(!position) return 100;
-    return parseInt(position.slice(0, -2))
+    return parseInt(position.slice(0, -2
+        ))
 }
 
 const moveCoin = () => {
     const x = Math.floor(Math.random() * window.innerWidth)
     // const y = ?
+    const y = Math.floor(Math.random() * window.innerWidth)
     coin.style.top = `${x}px`;
     // coin.style.?? = ??
+    coin.style.top = `${y}px`;
 }
 
 init();
