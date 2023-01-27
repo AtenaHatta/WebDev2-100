@@ -41,7 +41,8 @@ const init = () => {
 const moveVertical = (element, amount) => {
     const currTop = extractPos(element.style.top);
     element.style.top = `${currTop + amount}px`;
-}
+
+    
 
 const extractPos = (position) => {
     if(!position) return 100;
